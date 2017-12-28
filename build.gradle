@@ -1,0 +1,41 @@
+plugins {
+    id 'war'
+    id 'java'
+}
+
+group 'com.ray'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '8.5.24'
+    compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '8.5.24'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.ray.servless.Main'
+        )
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'com.ray.servless.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    from ("${projectDir}/src/main") {
+        include('/webapp/**')
+    }
+    with jar
+}

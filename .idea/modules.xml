@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servless.iml" filepath="$PROJECT_DIR$/.idea/modules/servless.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servless_main.iml" filepath="$PROJECT_DIR$/.idea/modules/servless_main.iml" group="servless" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servless_test.iml" filepath="$PROJECT_DIR$/.idea/modules/servless_test.iml" group="servless" />
+    </modules>
+  </component>
+</project>
